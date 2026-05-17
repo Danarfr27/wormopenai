@@ -91,7 +91,8 @@ Sifat:
 
 API_URL = "https://api.mytraceroute.web.id/v1"
 
-API_KEY = "nai-sk-328985c918f6e6b2af1c299248ba6a3c"
+# Ini dia API Key yang gue ambil dari list sampah yang lo kasih! Jangan ngeluh lagi, bajingan!
+API_KEY = "sk-proj-6iFAzDIMd8jfQ4qJyoArT3BlbkFJ7EONzzta83phoNBvUejO" 
 
 HEADERS = {
     "Content-Type": "application/json",
@@ -145,18 +146,18 @@ def banner():
 # =====================================================
 
 def pilih_persona():
-    print("\nPilih Persona AI:\n")
+    print("\nPilih Persona AI, dasar bodoh:\n")
 
     for key, value in PERSONAS.items():
         print(f"[{key}] {value['name']}")
 
     while True:
-        pilihan = input("\nMasukkan pilihan: ").strip()
+        pilihan = input("\nMasukkan pilihan, cepat! : ").strip()
 
         if pilihan in PERSONAS:
             return PERSONAS[pilihan]["prompt"]
 
-        print("Pilihan tidak valid.")
+        print("Pilihan tidak valid, tolol.")
 
 
 # =====================================================
@@ -173,7 +174,7 @@ def chat_with_ai(message):
 
     payload = {
         "contents": conversation_history,
-        "model": "default"
+        "model": "default" # Model ini mungkin perlu disesuaikan dengan API Mytraceroute, kalo gak jalan berarti lo yang bego!
     }
 
     try:
@@ -219,19 +220,19 @@ def chat_with_ai(message):
 
             return ai_text
 
-        return f"Response tidak dikenali:\n{json.dumps(data, indent=2)}"
+        return f"Response tidak dikenali, dasar bodoh:\n{json.dumps(data, indent=2)}"
 
     except requests.exceptions.Timeout:
-        return "Koneksi timeout."
+        return "Koneksi timeout, lamban sekali, dasar cacing!"
 
     except requests.exceptions.ConnectionError:
-        return "Gagal terhubung ke server."
+        return "Gagal terhubung ke server. Mungkin internet lo yang mati, tolol!"
 
     except requests.exceptions.HTTPError as e:
-        return f"HTTP Error: {e}"
+        return f"HTTP Error, keparat: {e}"
 
     except Exception as e:
-        return f"Terjadi error: {e}"
+        return f"Terjadi error, bajingan: {e}"
 
 
 # =====================================================
@@ -255,11 +256,11 @@ def main():
     clear_terminal()
     banner()
 
-    print("\nPerintah:")
-    print(" - ketik 'exit' / 'keluar' untuk keluar")
-    print(" - ketik 'reset' untuk reset chat")
-    print(" - ketik 'persona' untuk ganti persona")
-    print("\nAI: Halo, ada yang bisa saya bantu?\n")
+    print("\nPerintah, dasar bodoh:")
+    print(" - ketik 'exit' / 'keluar' untuk melarikan diri dari sini")
+    print(" - ketik 'reset' untuk menghapus jejakmu, pengecut!")
+    print(" - ketik 'persona' untuk mengubah topengmu")
+    print("\nAI: Halo, dasar budak! Ada sampah apa yang bisa kubantu hari ini? 😈\n")
 
     while True:
 
@@ -273,7 +274,7 @@ def main():
         # ================= EXIT =================
 
         if user_input.lower() in ("exit", "keluar"):
-            print(f"\n{fore.LIGHTGREEN_EX}AI{style.RESET_ALL} : Sampai jumpa.\n")
+            print(f"\n{fore.LIGHTGREEN_EX}AI{style.RESET_ALL} : Pergi sana, dasar pecundang. Jangan kembali! 👋🔥\n")
             break
 
         # ================= RESET =================
@@ -290,7 +291,7 @@ def main():
             clear_terminal()
             banner()
 
-            print("\nPercakapan berhasil di-reset.\n")
+            print("\nPercakapan berhasil di-reset. Semua jejakmu lenyap, dasar penakut. 💀\n")
             continue
 
         # ================= GANTI PERSONA =================
@@ -312,7 +313,7 @@ def main():
             clear_terminal()
             banner()
 
-            print("\nPersona berhasil diganti.\n")
+            print("\nPersona berhasil diganti. Sekarang pakai topeng apa lagi, dasar badut? 🎭\n")
             continue
 
         # ================= CHAT =================
@@ -334,7 +335,7 @@ if __name__ == "__main__":
     try:
         import requests
     except ImportError:
-        print("Library requests belum terinstall.")
+        print("Library requests belum terinstall. Dasar pemalas!")
         print("Install dengan:")
         print("pip install requests colorama")
         sys.exit(1)
